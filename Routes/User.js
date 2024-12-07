@@ -1,4 +1,4 @@
-const User = require('./models/User');
+const User = require('../models/User');
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -145,4 +145,4 @@ userR.get('/api/admin/me', authenticate, async (req, res) => {
     }
 });
 
-export default userR
+module.exports = userR;
