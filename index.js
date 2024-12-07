@@ -21,6 +21,9 @@ mongoose.connect('mongodb+srv://bashir:bashir@cluster0.5fx4u.mongodb.net/?retryW
     });
 
 app.use('/user', userR)
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Done" });
+});
 
 // Start server
 app.listen(PORT, () => {
