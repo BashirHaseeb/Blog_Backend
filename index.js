@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/signup')
+mongoose.connect('mongodb+srv://bashir:bashir@cluster0.5fx4u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/signup')
     .then(() => { console.log("DB connected"); })
     .catch((err) => {
         console.error('Database connection failed:', err);
