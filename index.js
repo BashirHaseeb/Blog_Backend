@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config();
-const mongoose = require('mongoose');
 const cors = require('cors');
+const connectDB = require("./config/db");
 const userR = require('./Routes/User')
 
 
@@ -9,16 +9,10 @@ const app = express();
 const PORT = 5000;
 
 // Middleware to parse JSON requests
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
-// MongoDB connection
-mongoose.connect('mongodb+srv://bashir:bashir@cluster0.5fx4u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/signup')
-    .then(() => { console.log("DB connected"); })
-    .catch((err) => {
-        console.error('Database connection failed:', err);
-        process.exit(1); // Exit on error
-    });
+connectDB();
 
 app.use('/user', userR)
 app.get("/", (req, res) => {
